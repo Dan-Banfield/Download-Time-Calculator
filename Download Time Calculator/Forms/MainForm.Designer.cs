@@ -114,6 +114,7 @@
             this.kbCheckBox.TabStop = false;
             this.kbCheckBox.Text = "KB";
             this.kbCheckBox.UseVisualStyleBackColor = true;
+            this.kbCheckBox.CheckedChanged += new System.EventHandler(this.kbCheckBox_CheckedChanged);
             // 
             // mbCheckBox
             // 
@@ -126,6 +127,7 @@
             this.mbCheckBox.TabStop = false;
             this.mbCheckBox.Text = "MB";
             this.mbCheckBox.UseVisualStyleBackColor = true;
+            this.mbCheckBox.CheckedChanged += new System.EventHandler(this.mbCheckBox_CheckedChanged);
             // 
             // gbCheckBox
             // 
@@ -138,6 +140,7 @@
             this.gbCheckBox.TabStop = false;
             this.gbCheckBox.Text = "GB";
             this.gbCheckBox.UseVisualStyleBackColor = true;
+            this.gbCheckBox.CheckedChanged += new System.EventHandler(this.gbCheckBox_CheckedChanged);
             // 
             // kbpsCheckBox
             // 
@@ -152,6 +155,7 @@
             this.kbpsCheckBox.TabStop = false;
             this.kbpsCheckBox.Text = "Kbps";
             this.kbpsCheckBox.UseVisualStyleBackColor = true;
+            this.kbpsCheckBox.CheckedChanged += new System.EventHandler(this.kbpsCheckBox_CheckedChanged);
             // 
             // mbpsCheckBox
             // 
@@ -164,6 +168,7 @@
             this.mbpsCheckBox.TabStop = false;
             this.mbpsCheckBox.Text = "Mbps";
             this.mbpsCheckBox.UseVisualStyleBackColor = true;
+            this.mbpsCheckBox.CheckedChanged += new System.EventHandler(this.mbpsCheckBox_CheckedChanged);
             // 
             // gbpsCheckBox
             // 
@@ -176,6 +181,7 @@
             this.gbpsCheckBox.TabStop = false;
             this.gbpsCheckBox.Text = "Gbps";
             this.gbpsCheckBox.UseVisualStyleBackColor = true;
+            this.gbpsCheckBox.CheckedChanged += new System.EventHandler(this.gbpsCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
