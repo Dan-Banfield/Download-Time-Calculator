@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Download_Time_Calculator.Forms
 {
@@ -108,6 +109,55 @@ namespace Download_Time_Calculator.Forms
         }
 
         #endregion
+
+        private void calculateButton_Click(object sender, System.EventArgs e)
+        {
+            TimeSpan downloadTime = CalculateDownloadTime(GetFileSizeBytes(), 
+                GetDownloadSpeedBytes());
+
+            resultLabel.Text = $"It will take {downloadTime.Hours} hours, {downloadTime.Minutes} minutes and {downloadTime.Seconds} seconds to download this file.";
+        }
+
+        #endregion
+
+        #region Methods
+
+        private double GetFileSizeBytes()
+        {
+            double fileSizeBytes = Convert.ToDouble(fileSizeTextBox.Text);
+
+            if (kbCheckBox.Checked)
+                fileSizeBytes = fileSizeBytes * 1000;
+            else if (mbCheckBox.Checked)
+                fileSizeBytes = fileSizeBytes * 1000000;
+            else if (gbCheckBox.Checked)
+                fileSizeBytes = fileSizeBytes * 1000000000;
+
+            return fileSizeBytes;
+        }
+
+        private double GetDownloadSpeedBytes()
+        {
+            double downloadSpeedBytes = Convert.ToDouble(yourSpeedTextBox.Text);
+
+            if (kbpsCheckBox.Checked)
+                downloadSpeedBytes = downloadSpeedBytes * 1000;
+            else if (mbpsCheckBox.Checked)
+                downloadSpeedBytes = downloadSpeedBytes * 1000000;
+            else if (gbpsCheckBox.Checked)
+                downloadSpeedBytes = downloadSpeedBytes * 1000000000;
+
+            return downloadSpeedBytes;
+        }
+
+        private TimeSpan CalculateDownloadTime(double fileSizeBytes, 
+            double downloadSpeedBytes)
+        {
+            int seconds = (int)(fileSizeBytes / downloadSpeedBytes);
+            TimeSpan result = new TimeSpan(0, 0, seconds);
+
+            return result;
+        }
 
         #endregion
     }

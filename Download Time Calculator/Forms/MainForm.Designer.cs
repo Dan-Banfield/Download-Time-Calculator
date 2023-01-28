@@ -31,7 +31,7 @@
             this.fileSizeLabel = new System.Windows.Forms.Label();
             this.fileSizeTextBox = new System.Windows.Forms.TextBox();
             this.yourSpeedLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.yourSpeedTextBox = new System.Windows.Forms.TextBox();
             this.calculateButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
             this.kbCheckBox = new System.Windows.Forms.CheckBox();
@@ -71,14 +71,14 @@
             this.yourSpeedLabel.TabIndex = 5;
             this.yourSpeedLabel.Text = "Your Speed:";
             // 
-            // textBox1
+            // yourSpeedTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(122, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 26);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TabStop = false;
+            this.yourSpeedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourSpeedTextBox.Location = new System.Drawing.Point(122, 64);
+            this.yourSpeedTextBox.Name = "yourSpeedTextBox";
+            this.yourSpeedTextBox.Size = new System.Drawing.Size(123, 26);
+            this.yourSpeedTextBox.TabIndex = 6;
+            this.yourSpeedTextBox.TabStop = false;
             // 
             // calculateButton
             // 
@@ -90,14 +90,14 @@
             this.calculateButton.TabStop = false;
             this.calculateButton.Text = "Calculate!";
             this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // resultLabel
             // 
-            this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(18, 193);
+            this.resultLabel.Location = new System.Drawing.Point(22, 193);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(191, 20);
+            this.resultLabel.Size = new System.Drawing.Size(458, 63);
             this.resultLabel.TabIndex = 11;
             this.resultLabel.Text = "Your result will show here!";
             // 
@@ -150,10 +150,10 @@
             this.kbpsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kbpsCheckBox.Location = new System.Drawing.Point(263, 67);
             this.kbpsCheckBox.Name = "kbpsCheckBox";
-            this.kbpsCheckBox.Size = new System.Drawing.Size(64, 24);
+            this.kbpsCheckBox.Size = new System.Drawing.Size(66, 24);
             this.kbpsCheckBox.TabIndex = 15;
             this.kbpsCheckBox.TabStop = false;
-            this.kbpsCheckBox.Text = "Kbps";
+            this.kbpsCheckBox.Text = "KBps";
             this.kbpsCheckBox.UseVisualStyleBackColor = true;
             this.kbpsCheckBox.CheckedChanged += new System.EventHandler(this.kbpsCheckBox_CheckedChanged);
             // 
@@ -163,10 +163,10 @@
             this.mbpsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbpsCheckBox.Location = new System.Drawing.Point(332, 67);
             this.mbpsCheckBox.Name = "mbpsCheckBox";
-            this.mbpsCheckBox.Size = new System.Drawing.Size(67, 24);
+            this.mbpsCheckBox.Size = new System.Drawing.Size(69, 24);
             this.mbpsCheckBox.TabIndex = 16;
             this.mbpsCheckBox.TabStop = false;
-            this.mbpsCheckBox.Text = "Mbps";
+            this.mbpsCheckBox.Text = "MBps";
             this.mbpsCheckBox.UseVisualStyleBackColor = true;
             this.mbpsCheckBox.CheckedChanged += new System.EventHandler(this.mbpsCheckBox_CheckedChanged);
             // 
@@ -176,10 +176,10 @@
             this.gbpsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbpsCheckBox.Location = new System.Drawing.Point(405, 67);
             this.gbpsCheckBox.Name = "gbpsCheckBox";
-            this.gbpsCheckBox.Size = new System.Drawing.Size(67, 24);
+            this.gbpsCheckBox.Size = new System.Drawing.Size(69, 24);
             this.gbpsCheckBox.TabIndex = 17;
             this.gbpsCheckBox.TabStop = false;
-            this.gbpsCheckBox.Text = "Gbps";
+            this.gbpsCheckBox.Text = "GBps";
             this.gbpsCheckBox.UseVisualStyleBackColor = true;
             this.gbpsCheckBox.CheckedChanged += new System.EventHandler(this.gbpsCheckBox_CheckedChanged);
             // 
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 226);
+            this.ClientSize = new System.Drawing.Size(498, 265);
             this.Controls.Add(this.gbpsCheckBox);
             this.Controls.Add(this.mbpsCheckBox);
             this.Controls.Add(this.kbpsCheckBox);
@@ -196,7 +196,7 @@
             this.Controls.Add(this.kbCheckBox);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.calculateButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.yourSpeedTextBox);
             this.Controls.Add(this.yourSpeedLabel);
             this.Controls.Add(this.fileSizeTextBox);
             this.Controls.Add(this.fileSizeLabel);
@@ -216,7 +216,7 @@
         private System.Windows.Forms.Label fileSizeLabel;
         private System.Windows.Forms.TextBox fileSizeTextBox;
         private System.Windows.Forms.Label yourSpeedLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox yourSpeedTextBox;
         private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.CheckBox kbCheckBox;
