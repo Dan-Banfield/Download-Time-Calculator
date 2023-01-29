@@ -10,6 +10,17 @@ namespace Download_Time_Calculator.Forms
             InitializeComponent();
         }
 
+        // Enables double-buffering (prevents WinForms flicker).
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;     
+                return handleParam;
+            }
+        }
+
         #region Event Handlers
 
         #region File Size Checkboxes
@@ -115,7 +126,7 @@ namespace Download_Time_Calculator.Forms
             TimeSpan downloadTime = CalculateDownloadTime(GetFileSizeBytes(), 
                 GetDownloadSpeedBytes());
 
-            resultLabel.Text = $"It will take {downloadTime.Hours} hours, {downloadTime.Minutes} minutes and {downloadTime.Seconds} seconds to download this file.";
+            resultLabel.Text = $"It will take {(int)downloadTime.TotalHours} hours, {downloadTime.Minutes} minutes and {downloadTime.Seconds} seconds to download this file.";
         }
 
         #endregion
@@ -153,8 +164,8 @@ namespace Download_Time_Calculator.Forms
         private TimeSpan CalculateDownloadTime(double fileSizeBytes, 
             double downloadSpeedBytes)
         {
-            int seconds = (int)(fileSizeBytes / downloadSpeedBytes);
-            TimeSpan result = new TimeSpan(0, 0, seconds);
+            double seconds = (fileSizeBytes / downloadSpeedBytes);
+            TimeSpan result = TimeSpan.FromSeconds(seconds);
 
             return result;
         }
